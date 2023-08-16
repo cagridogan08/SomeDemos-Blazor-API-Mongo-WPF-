@@ -52,7 +52,7 @@ namespace WpfAppWithRedisCache
             Configuration = _applicationHost.Services.GetRequiredService<IConfiguration>();
         }
 
-        private T? GetRequiredService<T>() where T : notnull
+        public T? GetRequiredService<T>() where T : notnull
         {
             return ((App)Current)._applicationHost.Services.GetService<T>();
         }

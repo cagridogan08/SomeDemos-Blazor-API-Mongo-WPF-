@@ -39,6 +39,9 @@
 		<PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
 		<PackageReference Include="Microsoft.Extensions.Configuration" Version="7.0.0"></PackageReference>
 		<PackageReference Include="StackExchange.Redis" Version="2.6.122" />
+		<PackageReference Include="MahApps.Metro" Version="2.4.9" />
+		<PackageReference Include="MahApps.Metro.IconPacks.FontAwesome" Version="4.11.0" />
+		<PackageReference Include="MahApps.Metro.IconPacks.Material" Version="4.11.0" />
 
 	</ItemGroup>
 

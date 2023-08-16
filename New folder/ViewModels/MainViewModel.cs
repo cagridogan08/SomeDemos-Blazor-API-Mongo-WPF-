@@ -5,14 +5,12 @@ namespace WpfAppWithRedisCache.ViewModels
 {
     public class MainViewModel : BaseViewModel
     {
-        private readonly IDataService<Product> _service;
-        private ServiceSyncCollection<Product> _products;
 
         public MainViewModel(IDataService<Product> service)
         {
-            _service = service;
-            _products = new ServiceSyncCollection<Product>(_service);
+            _products = new ServiceSyncCollection<Product>(service);
         }
+        private ServiceSyncCollection<Product> _products;
 
         public ServiceSyncCollection<Product> Products
         {

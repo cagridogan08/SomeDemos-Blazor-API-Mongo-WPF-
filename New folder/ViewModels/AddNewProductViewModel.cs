@@ -23,7 +23,8 @@ namespace WpfAppWithRedisCache.ViewModels
 
         public ICommand AddCommand => new RelayCommand(() =>
         {
-            _mainViewModel
+            _mainViewModel.Products.Add(NewProduct);
+            NewProduct = new();
         });
     }
 }

@@ -7,5 +7,49 @@
     d:DesignHeight="450"
     d:DesignWidth="800"
     mc:Ignorable="d">
-    <Grid />
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition Width="3*" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Label
+                Grid.Row="0"
+                VerticalAlignment="Top"
+                Content="Name" />
+            <TextBox
+                Grid.Row="0"
+                VerticalAlignment="Center"
+                Text="{Binding NewProduct.Name}" />
+            <Label
+                Grid.Row="1"
+                VerticalAlignment="Top"
+                Content="Description" />
+            <TextBox
+                Grid.Row="1"
+                VerticalAlignment="Center"
+                Text="{Binding NewProduct.Description}" />
+            <Label
+                Grid.Row="2"
+                VerticalAlignment="Top"
+                Content="Category" />
+            <TextBox
+                Grid.Row="2"
+                VerticalAlignment="Center"
+                Text="{Binding NewProduct.Category}" />
+            <Button
+                Grid.Row="3"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Command="{Binding AddCommand}"
+                Content="Add" />
+        </Grid>
+    </Grid>
 </UserControl>
