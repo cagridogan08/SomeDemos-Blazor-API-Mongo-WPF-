@@ -1,4 +1,5 @@
-﻿using System.Windows.Controls;
+﻿using System.Windows;
+using System.Windows.Controls;
 using WpfAppWithRedisCache.ViewModels;
 
 namespace WpfAppWithRedisCache.Views
@@ -11,7 +12,7 @@ namespace WpfAppWithRedisCache.Views
         public AddNewProductView()
         {
             InitializeComponent();
-            var vm = App.Current as App;
+            var vm = Application.Current as App;
             DataContext = new AddNewProductViewModel(vm?.GetRequiredService<MainViewModel>());
         }
     }

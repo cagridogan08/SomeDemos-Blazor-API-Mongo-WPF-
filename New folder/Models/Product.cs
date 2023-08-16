@@ -1,4 +1,6 @@
-﻿namespace WpfAppWithRedisCache.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace WpfAppWithRedisCache.Models
 {
     public class Product : Entity
     {
@@ -9,6 +11,7 @@
 
     public class Entity
     {
+        [Key]
         public int Id { get; set; }
 
     }

@@ -1,4 +1,6 @@
-﻿using WpfAppWithRedisCache.Models;
+﻿using System.Windows.Input;
+using WpfAppWithRedisCache.Commands;
+using WpfAppWithRedisCache.Models;
 using WpfAppWithRedisCache.Services;
 
 namespace WpfAppWithRedisCache.ViewModels
@@ -17,5 +19,10 @@ namespace WpfAppWithRedisCache.ViewModels
             get => _products;
             set => SetField(ref _products, value);
         }
+
+        public ICommand DeleteItemCommand => new RelayCommand<Product>((product =>
+        {
+            Products.Remove(product);
+        }));
     }
 }

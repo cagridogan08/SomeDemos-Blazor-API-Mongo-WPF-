@@ -32,7 +32,11 @@ namespace WpfAppWithRedisCache.Services
 
             var cacheTimeout = DateTimeOffset.Now.AddMinutes(2.0);
             cacheData = _context.Products.ToList();
-            _cacheService.SetData<IEnumerable<Product>>("products", cacheData, cacheTimeout);
+            _cacheService.SetData("products", cacheData, cacheTimeout);
+            foreach (var product in cacheData)
+            {
+                _cacheService.SetData($"product{product.Id}", product, cacheTimeout);
+            }
             return cacheData.ToList();
         }
 

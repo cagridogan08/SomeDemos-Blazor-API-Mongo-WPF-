@@ -8,7 +8,7 @@ namespace WpfAppWithRedisCache
     {
         private readonly IDataService<T> _service;
 
-        public ServiceSyncCollection(IDataService<T> service)
+        public ServiceSyncCollection(IDataService<T> service) : base(service.GetData())
         {
             _service = service;
         }
@@ -26,6 +26,12 @@ namespace WpfAppWithRedisCache
             var itm = this[index];
             _service.RemoveData(itm.Id);
             base.RemoveItem(index);
+        }
+
+        protected override void SetItem(int index, T item)
+        {
+            _service.UpdateData(item);
+            base.SetItem(index, item);
         }
 
         #endregion
