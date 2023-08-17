@@ -1,0 +1,38 @@
+﻿@using BlazorUIMongo.Services
+@using BlazorUIMongo.Data
+@using BlazorUIMongo.Collections
+@using BlazorUIMongo.ViewModels
+<h3>DriverComponent</h3>
+@inject MainViewModel ViewModel;
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Team</th>
+            <th>Number</th>
+        </tr>
+    </thead>
+<tbody>
+@foreach (var driver in ViewModel.Drivers)
+{
+    <tr>
+        <td>@driver.Id</td>
+        <td>@driver.Name</td>
+        <td>@driver.Team</td>
+        <td>@driver.Number</td>
+    </tr>
+}
+</tbody>
+</table>
+@code {
+    protected override void OnInitialized()
+    {
+        ViewModel.Drivers.CollectionChanged += (s, e) =>
+        {
+            StateHasChanged();
+        };
+
+    }
+
+}

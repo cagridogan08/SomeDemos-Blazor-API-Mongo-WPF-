@@ -1,5 +1,4 @@
-﻿using System.Windows;
-using WpfAppWithRedisCache.ViewModels;
+﻿using WpfAppWithRedisCache.ViewModels;
 
 namespace WpfAppWithRedisCache
 {

@@ -5,6 +5,12 @@ VisualStudioVersion = 17.6.33815.320
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfAppWithRedisCache", "New folder\WpfAppWithRedisCache.csproj", "{2C56A6B0-DCD5-4C7F-83B0-9E0B0DD958B2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MongoApi", "MongoApi\MongoApi.csproj", "{C3481FD8-BAA3-459E-8E8C-BDB5CD60DEB3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DomainLibrary", "DomainLibrary\DomainLibrary.csproj", "{43F53B01-FF69-4F23-9314-A346C301DF3A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorUIMongo", "BlazorUIMongo\BlazorUIMongo.csproj", "{A0AA6A74-0158-47DE-9EAD-218817A95B0B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +21,18 @@ Global
 		{2C56A6B0-DCD5-4C7F-83B0-9E0B0DD958B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2C56A6B0-DCD5-4C7F-83B0-9E0B0DD958B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2C56A6B0-DCD5-4C7F-83B0-9E0B0DD958B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3481FD8-BAA3-459E-8E8C-BDB5CD60DEB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3481FD8-BAA3-459E-8E8C-BDB5CD60DEB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3481FD8-BAA3-459E-8E8C-BDB5CD60DEB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3481FD8-BAA3-459E-8E8C-BDB5CD60DEB3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43F53B01-FF69-4F23-9314-A346C301DF3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43F53B01-FF69-4F23-9314-A346C301DF3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43F53B01-FF69-4F23-9314-A346C301DF3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43F53B01-FF69-4F23-9314-A346C301DF3A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0AA6A74-0158-47DE-9EAD-218817A95B0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0AA6A74-0158-47DE-9EAD-218817A95B0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0AA6A74-0158-47DE-9EAD-218817A95B0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0AA6A74-0158-47DE-9EAD-218817A95B0B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

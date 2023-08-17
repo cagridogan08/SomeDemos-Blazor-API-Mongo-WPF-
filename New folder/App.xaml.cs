@@ -30,6 +30,7 @@ namespace WpfAppWithRedisCache
                 {
                     config.SetBasePath(AppContext.BaseDirectory);
                     config.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
+                    config.AddEnvironmentVariables();
                 })
                 .ConfigureLogging(((context, builder) =>
                 {
@@ -57,6 +58,7 @@ namespace WpfAppWithRedisCache
             return ((App)Current)._applicationHost.Services.GetService<T>();
         }
 
+
         public static string? GetConfiguration(string key)
         {
             return ((App)Current).Configuration[key];
@@ -76,6 +78,7 @@ namespace WpfAppWithRedisCache
                         {
                             if (await dataContext.Database.CanConnectAsync())
                             {
+                                await dataContext.Database.EnsureCreatedAsync();
                                 break; // Connection is established, exit the loop
                             }
                         }
@@ -86,11 +89,6 @@ namespace WpfAppWithRedisCache
                         }
                     }
                 });
-            }
-
-            if (dataContext != null && await dataContext.Database.EnsureCreatedAsync())
-            {
-                await dataContext.Database.MigrateAsync();
             }
             GetRequiredService<MainWindow>()?.Show();
         }

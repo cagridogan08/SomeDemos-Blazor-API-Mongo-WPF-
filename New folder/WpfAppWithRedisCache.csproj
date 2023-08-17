@@ -47,5 +47,10 @@
 
 	<ItemGroup>
 		<Folder Include="Extensions\" />
+		<Folder Include="Models\" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\DomainLibrary\DomainLibrary.csproj" />
 	</ItemGroup>
 </Project>

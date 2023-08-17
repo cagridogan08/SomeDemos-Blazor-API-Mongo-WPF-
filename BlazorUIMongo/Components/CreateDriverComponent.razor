@@ -1,0 +1,40 @@
+﻿@inject MainViewModel ViewModel
+@using BlazorUIMongo.Data
+@using BlazorUIMongo.Services
+@using BlazorUIMongo.ViewModels
+<EditForm Model="@tmp" OnValidSubmit="@Submit">
+    <div >
+        <div >
+            <label>Title:</label>
+            <input type="text" @bind="tmp.Name" />
+        </div>
+        <div >
+            <label>Amount</label>
+            <input type="number" min="1" step="1" @bind="tmp.Number" />
+        </div>
+        <div >
+            <label>Date</label>
+            <input type="text" @bind="tmp.Team" />
+        </div>
+        <div >
+            <button  type="submit">Add Expense</button>
+        </div>
+    </div>
+
+</EditForm>
+
+@code {
+    private Driver tmp =null;
+
+    private void Submit()
+    {
+        ViewModel.Drivers.Add(tmp);
+    }
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        tmp = new();
+    }
+
+}

@@ -14,7 +14,6 @@ namespace WpfAppWithRedisCache
         }
 
         #region Methods
-
         protected override void InsertItem(int index, T item)
         {
             _service.AddData(item);
