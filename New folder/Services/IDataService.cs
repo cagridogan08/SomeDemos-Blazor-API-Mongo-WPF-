@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using WpfAppWithRedisCache.Models;
+using DomainLibrary;
 
 namespace WpfAppWithRedisCache.Services
 {

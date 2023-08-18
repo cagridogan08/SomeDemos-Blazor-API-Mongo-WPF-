@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace WpfAppWithRedisCache.Models
+namespace DomainLibrary
 {
     public class Product : Entity
     {

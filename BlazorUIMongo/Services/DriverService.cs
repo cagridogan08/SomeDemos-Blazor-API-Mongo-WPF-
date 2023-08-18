@@ -1,5 +1,4 @@
-﻿using BlazorUIMongo.Collections;
-using BlazorUIMongo.Data;
+﻿using BlazorUIMongo.Data;
 
 namespace BlazorUIMongo.Services
 {
@@ -7,6 +6,8 @@ namespace BlazorUIMongo.Services
     {
         Task<ICollection<T>> Get();
         Task<bool> Add(T entity);
+        Task<bool> Update(T entity);
+        Task<bool> Delete(T id);
     }
     public class DriverService : IService<Driver>
     {
@@ -24,6 +25,18 @@ namespace BlazorUIMongo.Services
         public async Task<bool> Add(Driver entity)
         {
             var res = await _httpClient.PostAsJsonAsync<Driver>("api/Driver", entity);
+            return res.IsSuccessStatusCode;
+        }
+
+        public async Task<bool> Update(Driver entity)
+        {
+            var res = await _httpClient.PutAsJsonAsync<Driver>("api/Driver", entity);
+            return res.IsSuccessStatusCode;
+        }
+
+        public async Task<bool> Delete(Driver id)
+        {
+            var res = await _httpClient.DeleteAsync($"api/Driver/{id.Id}");
             return res.IsSuccessStatusCode;
         }
     }

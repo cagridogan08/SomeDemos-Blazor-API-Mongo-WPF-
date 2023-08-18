@@ -31,7 +31,7 @@ namespace BlazorUIMongo.Collections
         protected override void RemoveItem(int index)
         {
             var itm = this[index];
-            //_service.RemoveData(itm.Id);
+            _service.Delete(itm);
             base.RemoveItem(index);
         }
 

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using System.Windows;
+using DomainLibrary;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -8,7 +9,6 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Serilog;
 using WpfAppWithRedisCache.Context;
-using WpfAppWithRedisCache.Models;
 using WpfAppWithRedisCache.Services;
 using WpfAppWithRedisCache.ViewModels;
 

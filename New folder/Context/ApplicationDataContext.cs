@@ -1,5 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
-using WpfAppWithRedisCache.Models;
+﻿using DomainLibrary;
+using Microsoft.EntityFrameworkCore;
 
 namespace WpfAppWithRedisCache.Context
 {

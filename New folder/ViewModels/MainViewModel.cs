@@ -1,6 +1,6 @@
 ﻿using System.Windows.Input;
+using DomainLibrary;
 using WpfAppWithRedisCache.Commands;
-using WpfAppWithRedisCache.Models;
 using WpfAppWithRedisCache.Services;
 
 namespace WpfAppWithRedisCache.ViewModels

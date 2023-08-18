@@ -29,5 +29,31 @@ namespace MongoApi.Services
                 return false;
             }
         }
+
+        internal async Task<bool> UpdateDriver(Driver driver)
+        {
+            try
+            {
+                await _drivers.ReplaceOneAsync(d => d.Id == driver.Id, driver);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        internal async Task<bool> DeleteDriver(string id)
+        {
+            try
+            {
+                await _drivers.DeleteOneAsync(d => d.Id == id);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
     }
 }

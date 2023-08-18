@@ -19,4 +19,10 @@ public class DriverController : ControllerBase
 
     [HttpPost]
     public async Task<bool> Create(Driver driver) => await _driverService.CreateDriver(driver);
+
+    [HttpDelete("{id}")]
+    public async Task<bool> Delete(string id) => await _driverService.DeleteDriver(id);
+    [HttpPut]
+    public async Task<bool> Update(Driver driver) => await _driverService.UpdateDriver(driver);
+
 }

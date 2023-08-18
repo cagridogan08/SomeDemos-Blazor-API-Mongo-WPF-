@@ -1,9 +1,7 @@
 using BlazorUIMongo.Data;
-using BlazorUIMongo.Pages;
 using BlazorUIMongo.Services;
 using BlazorUIMongo.ViewModels;
-using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Web;
+using Syncfusion.Blazor;
 
 namespace BlazorUIMongo
 {
@@ -16,6 +14,7 @@ namespace BlazorUIMongo
             // Add services to the container.
             builder.Services.AddRazorPages();
             builder.Services.AddServerSideBlazor();
+            builder.Services.AddSyncfusionBlazor();
             builder.Services.AddHttpClient<IService<Driver>, DriverService>((client =>
             {
                 client.BaseAddress = new Uri("http://localhost:5041/");
