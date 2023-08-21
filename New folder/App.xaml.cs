@@ -1,14 +1,17 @@
 ﻿using System;
 using System.Threading.Tasks;
 using System.Windows;
+using DataManagerLibrary.Context;
+using DataManagerLibrary.Managers;
+using DataManagerLibrary.Managers.Abstract;
 using DomainLibrary;
+using Microsoft.AspNetCore.SignalR.Client;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Serilog;
-using WpfAppWithRedisCache.Context;
 using WpfAppWithRedisCache.Services;
 using WpfAppWithRedisCache.ViewModels;
 
@@ -44,9 +47,22 @@ namespace WpfAppWithRedisCache
                         builder.UseNpgsql(provider.GetRequiredService<IConfiguration>()
                             .GetConnectionString("DefaultConnection"));
                     }));
+                    services.AddScoped<IEntityManager<Product>, ProductManager>();
+                    services.AddHttpClient<IHttpClientService<Product>, HttpClientService<Product>>(client =>
+                    {
+                        client.BaseAddress = new Uri("http://localhost:5041/");
+                    });
+                    services.AddSingleton(_ =>
+                    {
+                        var hubConnection = new HubConnectionBuilder()
+                            .WithUrl("http://localhost:5041/messages")
+                            .Build();
+
+                        return hubConnection;
+                    });
                     services.AddScoped<ICacheService, CacheService>();
                     services.AddScoped<IDataService<Product>, ProductDataService>();
-                    services.AddScoped<MainViewModel>();
+                    services.AddSingleton<MainViewModel>();
                     services.AddSingleton<MainWindow>();
                 })
                 .Build();
@@ -96,6 +112,8 @@ namespace WpfAppWithRedisCache
         protected override async void OnExit(ExitEventArgs e)
         {
             await _applicationHost.StopAsync();
+            await GetRequiredService<ApplicationDataContext>()?.Database?.CloseConnectionAsync()!;
+            await GetRequiredService<HubConnection>()!.DisposeAsync();
             _applicationHost.Dispose();
         }
     }

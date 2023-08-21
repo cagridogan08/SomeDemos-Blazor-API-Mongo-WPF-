@@ -1,4 +1,6 @@
 ﻿using System.Collections.ObjectModel;
+using System.Threading.Tasks;
+using System.Windows.Threading;
 using DomainLibrary;
 using WpfAppWithRedisCache.Services;
 
@@ -8,9 +10,17 @@ namespace WpfAppWithRedisCache
     {
         private readonly IDataService<T> _service;
 
-        public ServiceSyncCollection(IDataService<T> service) : base(service.GetData())
+        public ServiceSyncCollection(IDataService<T> service)
         {
             _service = service;
+            Task.Run(async () =>
+            {
+                var items = await _service.GetData();
+                foreach (var item in items)
+                {
+                    Add(item);
+                }
+            });
         }
 
         #region Methods

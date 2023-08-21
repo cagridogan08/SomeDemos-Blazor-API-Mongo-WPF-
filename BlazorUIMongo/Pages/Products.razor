@@ -1,0 +1,76 @@
+﻿@page "/products"
+@using BlazorUIMongo.ViewModels
+@using DomainLibrary
+@inject ProductsViewModel ViewModel
+<h3>Products</h3>
+<EditForm Model="@_tmp" OnValidSubmit="@Submit">
+    <div>
+        <div>
+            <label>Name:</label>
+            <input type="text" @bind="_tmp.Name" />
+        </div>
+        <div>
+            <label>Category</label>
+            <input type="text" @bind="_tmp.Category" />
+        </div>
+        <div>
+            <label>Description</label>
+            <input type="text" @bind="_tmp.Description" />
+        </div>
+        <div>
+            <button type="submit">Add Expense</button>
+        </div>
+    </div>
+
+</EditForm>
+<table class="table">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+            <th>Category</th>
+            <th>Description</th>
+        <th>Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var driver in ViewModel.Products)
+    {
+        <tr>
+            <td>@driver.Id</td>
+            <td>@driver.Name</td>
+            <td>@driver.Category</td>
+            <td>@driver.Description</td>
+            <td><button @onclick="() => DeleteProduct(driver)" type="button">Delete Driver</button></td>
+        </tr>
+    }
+    </tbody>
+</table>
+@code {
+
+    private Product _tmp;
+
+    private void Submit()
+    {
+        _tmp.Id = Random.Shared.Next(1, 100000);
+
+        ViewModel.Products.Add(_tmp);
+        _tmp = new();
+    }
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        _tmp = new();
+        ViewModel.Products.CollectionChanged += (_, _) =>
+        {
+            StateHasChanged();
+        };
+    }
+
+    private void DeleteProduct(Product driver)
+    {
+        ViewModel.Products.Remove(driver);
+    }
+
+}

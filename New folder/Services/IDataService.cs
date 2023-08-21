@@ -1,20 +1,20 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using DomainLibrary;
 
 namespace WpfAppWithRedisCache.Services
 {
     public interface IDataService<T> where T : Entity
     {
-        IDataService<T> GetDataService();
 
-        ICollection<T> GetData();
+        Task<ICollection<T>> GetData();
 
-        T? GetDataOrNull(int id);
+        Task<T?> GetDataOrNull(int id);
 
-        bool RemoveData(int id);
+        Task<bool> RemoveData(int id);
 
-        bool AddData(T data);
+        Task<bool> AddData(T data);
 
-        bool UpdateData(T data);
+        Task<bool> UpdateData(T data);
     }
 }

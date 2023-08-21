@@ -2,7 +2,7 @@
 
 namespace WpfAppWithRedisCache.Services
 {
-    internal interface ICacheService
+    public interface ICacheService
     {
         T? GetData<T>(string key);
         bool SetData<T>(string key, T data, DateTimeOffset expireTime);

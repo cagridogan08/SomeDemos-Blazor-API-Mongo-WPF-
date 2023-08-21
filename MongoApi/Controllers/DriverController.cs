@@ -9,7 +9,6 @@ namespace MongoApi.Controllers;
 public class DriverController : ControllerBase
 {
     private readonly DriverService _driverService;
-
     public DriverController(DriverService driverService)
     {
         _driverService = driverService;

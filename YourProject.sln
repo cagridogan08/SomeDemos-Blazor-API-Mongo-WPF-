@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DomainLibrary", "DomainLibr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorUIMongo", "BlazorUIMongo\BlazorUIMongo.csproj", "{A0AA6A74-0158-47DE-9EAD-218817A95B0B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataManagerLibrary", "DataManagerLibrary\DataManagerLibrary.csproj", "{5690ED93-6249-4481-B8D0-64293BCDBB9F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{A0AA6A74-0158-47DE-9EAD-218817A95B0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A0AA6A74-0158-47DE-9EAD-218817A95B0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A0AA6A74-0158-47DE-9EAD-218817A95B0B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5690ED93-6249-4481-B8D0-64293BCDBB9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5690ED93-6249-4481-B8D0-64293BCDBB9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5690ED93-6249-4481-B8D0-64293BCDBB9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5690ED93-6249-4481-B8D0-64293BCDBB9F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
