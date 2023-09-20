@@ -1,9 +1,18 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="ld001_mb_model_lib" Version="0.2.0" />
+	  <PackageReference Include="ld002_opcua_model_lib" Version="0.2.0" />
+	  <PackageReference Include="ld003_snmp_model_lib" Version="0.2.0" />
+	  <PackageReference Include="ld004_imu100_model_lib" Version="0.2.0" />
+	  <PackageReference Include="ld005_idc850_model_lib" Version="0.2.0" />
+	  <PackageReference Include="ld006_imu_ixl_model_lib" Version="0.2.0" />
+	</ItemGroup>
 
 </Project>

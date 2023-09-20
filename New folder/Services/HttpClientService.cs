@@ -3,46 +3,57 @@ using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
-
+using Iotech.Link.Libs.Modules.LinkRestAPI.DTOs;
+using Iotech.Link.Libs.Modules.LinkRestAPI.Enums;
 namespace WpfAppWithRedisCache.Services
 {
-    public interface IHttpClientService<T> where T : class
+    public interface IHttpClientService
     {
-        Task<ICollection<T>> Get();
-        Task<bool> Create(T t);
-        Task<bool> Update(T t);
-        Task<bool> Delete(T id);
+        HttpClient HttpClient { get; }
+        Task<ICollection<T>> Get<T>();
+        Task<bool> Create<T>(T t);
+        Task<bool> Update<T>(IEnumerable<T> t);
+        Task<bool> Delete<T>(IEnumerable<T> id);
+        Task<bool> Create<T>(List<T> t);
     }
-    internal class HttpClientService<T> : IHttpClientService<T> where T : class
+
+    public class HttpClientService : IHttpClientService
     {
-        private readonly HttpClient _httpClient;
+        public HttpClient HttpClient { get; }
+        public string NodeName { get; set; } = "249";
 
         public HttpClientService(HttpClient httpClient)
         {
-            _httpClient = httpClient;
+            HttpClient = httpClient;
         }
 
-        public async Task<ICollection<T>> Get()
+        public virtual async Task<ICollection<T>> Get<T>()
         {
-            var items = await _httpClient.GetFromJsonAsync<T[]>($"api/{typeof(T).Name}");
+            var items = await HttpClient.GetFromJsonAsync<T[]>($"api/{typeof(T).Name}");
             return items is not null ? items.ToList() : Enumerable.Empty<T>().ToList();
         }
-
-        public async Task<bool> Create(T t)
+        public virtual async Task<bool> Create<T>(T t)
         {
-            var res = await _httpClient.PostAsJsonAsync<T>($"api/{typeof(T).Name}", t);
+            var res = await HttpClient.PostAsJsonAsync($"api/{typeof(T).Name}?node={NodeName}", t);
             return res.IsSuccessStatusCode;
         }
 
-        public async Task<bool> Update(T t)
+        public virtual async Task<bool> Create<T>(List<T> t)
         {
-            var response = await _httpClient.PutAsJsonAsync($"api/{typeof(T).Name}", t);
-            return response.IsSuccessStatusCode;
+            var response = await HttpClient.PostAsJsonAsync($"api/{typeof(T).Name}?node={NodeName}", t);
+            var item = await response.Content.ReadFromJsonAsync<List<LinkApiResponseDto<T>>>();
+            return item?.First().StatusCode == ApiStatusCode.Ok;
+        }
+        public virtual async Task<bool> Update<T>(IEnumerable<T> t)
+        {
+            var response = await HttpClient.PutAsJsonAsync($"api/{typeof(T).Name}?node={NodeName}", t);
+            var item = await response.Content.ReadFromJsonAsync<List<LinkApiResponseDto<T>>>();
+            return item?.First().StatusCode == ApiStatusCode.Ok;
         }
 
-        public async Task<bool> Delete(T id)
+        public virtual async Task<bool> Delete<T>(IEnumerable<T> id)
         {
-            var response = await _httpClient.DeleteAsync($"api/{typeof(T).Name}/{id}");
+            var response = await HttpClient.DeleteAsync($"api/{typeof(T).Name}?node={NodeName}/{id}");
             return response.IsSuccessStatusCode;
         }
     }

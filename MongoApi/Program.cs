@@ -3,17 +3,9 @@ using MongoApi.Hub;
 using MongoApi.Services;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddSignalR();
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("CORSPolicy", corsPolicyBuilder =>
-    {
-        corsPolicyBuilder.AllowAnyHeader()
-            .AllowAnyMethod()
-            .AllowAnyOrigin();
-    });
-});
-builder.Services.AddSignalR();
-builder.Services.AddCors(options => {
     options.AddPolicy("CORSPolicy", policyBuilder => policyBuilder.AllowAnyMethod().AllowAnyHeader().AllowCredentials().SetIsOriginAllowed((hosts) => true));
 });
 // Add services to the container.
@@ -25,7 +17,6 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 var app = builder.Build();
-
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
@@ -34,12 +25,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseRouting();
-app.UseEndpoints(endpoints => {
-    endpoints.MapControllers();
-    endpoints.MapHub<MessageHub>("/messages");
-});
 app.UseCors("CORSPolicy");
 app.UseHttpsRedirection();
 app.MapControllers();
-
+app.MapHub<MessageHub>("/messages");
 app.Run();

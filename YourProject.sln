@@ -5,13 +5,20 @@ VisualStudioVersion = 17.6.33815.320
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfAppWithRedisCache", "New folder\WpfAppWithRedisCache.csproj", "{2C56A6B0-DCD5-4C7F-83B0-9E0B0DD958B2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MongoApi", "MongoApi\MongoApi.csproj", "{C3481FD8-BAA3-459E-8E8C-BDB5CD60DEB3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MongoApi", "MongoApi\MongoApi.csproj", "{C3481FD8-BAA3-459E-8E8C-BDB5CD60DEB3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DomainLibrary", "DomainLibrary\DomainLibrary.csproj", "{43F53B01-FF69-4F23-9314-A346C301DF3A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DomainLibrary", "DomainLibrary\DomainLibrary.csproj", "{43F53B01-FF69-4F23-9314-A346C301DF3A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorUIMongo", "BlazorUIMongo\BlazorUIMongo.csproj", "{A0AA6A74-0158-47DE-9EAD-218817A95B0B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorUIMongo", "BlazorUIMongo\BlazorUIMongo.csproj", "{A0AA6A74-0158-47DE-9EAD-218817A95B0B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataManagerLibrary", "DataManagerLibrary\DataManagerLibrary.csproj", "{5690ED93-6249-4481-B8D0-64293BCDBB9F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataManagerLibrary", "DataManagerLibrary\DataManagerLibrary.csproj", "{5690ED93-6249-4481-B8D0-64293BCDBB9F}"
+EndProject
+
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InMemoryEventBus", "InMemoryEventBus\InMemoryEventBus.csproj", "{2D7E7F14-C766-4D50-99C5-782210322773}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotificationAPI", "NotificationAPI\NotificationAPI.csproj", "{3217C7F2-7D94-4DD7-845F-D501E1A58B6C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MauiApp1", "MauiApp1\MauiApp1.csproj", "{42328862-36ED-4FDE-A960-4E7C7B3DF9EC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +46,24 @@ Global
 		{5690ED93-6249-4481-B8D0-64293BCDBB9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5690ED93-6249-4481-B8D0-64293BCDBB9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5690ED93-6249-4481-B8D0-64293BCDBB9F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4AE9721-A834-4EEB-9C24-66304BB6113A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4AE9721-A834-4EEB-9C24-66304BB6113A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4AE9721-A834-4EEB-9C24-66304BB6113A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4AE9721-A834-4EEB-9C24-66304BB6113A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D7E7F14-C766-4D50-99C5-782210322773}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D7E7F14-C766-4D50-99C5-782210322773}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D7E7F14-C766-4D50-99C5-782210322773}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D7E7F14-C766-4D50-99C5-782210322773}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3217C7F2-7D94-4DD7-845F-D501E1A58B6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3217C7F2-7D94-4DD7-845F-D501E1A58B6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3217C7F2-7D94-4DD7-845F-D501E1A58B6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3217C7F2-7D94-4DD7-845F-D501E1A58B6C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42328862-36ED-4FDE-A960-4E7C7B3DF9EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42328862-36ED-4FDE-A960-4E7C7B3DF9EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42328862-36ED-4FDE-A960-4E7C7B3DF9EC}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{42328862-36ED-4FDE-A960-4E7C7B3DF9EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42328862-36ED-4FDE-A960-4E7C7B3DF9EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42328862-36ED-4FDE-A960-4E7C7B3DF9EC}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

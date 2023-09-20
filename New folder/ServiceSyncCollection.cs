@@ -1,6 +1,5 @@
 ﻿using System.Collections.ObjectModel;
 using System.Threading.Tasks;
-using System.Windows.Threading;
 using DomainLibrary;
 using WpfAppWithRedisCache.Services;
 
